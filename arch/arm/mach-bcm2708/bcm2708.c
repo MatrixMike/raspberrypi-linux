@@ -585,12 +585,6 @@ static struct spi_board_info bcm2708_spi_devices[] = {
 		.modalias = "spidev",
 		.max_speed_hz = 500000,
 		.bus_num = 0,
-		.chip_select = 0,
-		.mode = SPI_MODE_0,
-	}, {
-		.modalias = "spidev",
-		.max_speed_hz = 500000,
-		.bus_num = 0,
 		.chip_select = 1,
 		.mode = SPI_MODE_0,
 	}
