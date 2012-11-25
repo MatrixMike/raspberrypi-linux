@@ -1,13 +1,12 @@
 config FB_ST7735
         tristate "ST7735 framebuffer support"
-        depends on FB && SPI
+        depends on FB && SPI && GPIOLIB
         default n
         select FB_SYS_FILLRECT
         select FB_SYS_COPYAREA
         select FB_SYS_IMAGEBLIT
         select FB_DEFERRED_IO
         select FB_SYS_FOPS
-        select SPI_BCM2708	# FIXME: this is needed but doesn't belong here
         help
           Support for ST7735 framebuffer device family
 
