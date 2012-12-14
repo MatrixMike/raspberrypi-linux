@@ -417,6 +417,37 @@ static void st7735fb_deferred_io_touch(struct fb_info *info,
 }
 
 
+static int st7735fb_blank(int blank_mode, struct fb_info *info)
+{
+	struct st7735fb_par *par = info->par;
+
+	/*
+	 * Without a way to control the backlight, just setting ST7735_DISPOFF
+	 * for blanking leaves the screen in full-brightness white.  Instead,
+	 * just paint the screen black.
+	 */
+#if 0
+	int cmd = ST7735_DISPOFF;
+
+	if (blank_mode == FB_BLANK_UNBLANK)
+		cmd = ST7735_DISPON;
+
+	st7735_write_cmd(par, 1, cmd);
+	mdelay(100);
+#else
+	if (blank_mode == FB_BLANK_UNBLANK) {
+		/* do nothing */
+	} else {
+		/* paint the screen black */
+		memset(par->info->screen_base, 0, info->fix.smem_len);
+		st7735fb_update_display(par, NULL);
+	}
+#endif
+
+	return 0;
+}
+
+
 static int st7735fb_init_display(struct st7735fb_par *par)
 {
 	st7735_reset(par);
@@ -544,6 +575,7 @@ static struct fb_ops st7735fb_ops = {
 	.owner		= THIS_MODULE,
 	.fb_read	= fb_sys_read,
 	.fb_write	= st7735fb_write,
+	.fb_blank	= st7735fb_blank,
 	.fb_fillrect	= st7735fb_fillrect,
 	.fb_copyarea	= st7735fb_copyarea,
 	.fb_imageblit	= st7735fb_imageblit,
