@@ -1,5 +1,7 @@
 /*
  * linux/include/video/st7735fb.h -- FB driver for ST7735 LCD controller
+ * as found in 1.8" TFT LCD modules available from Adafruit, SainSmart,
+ * and other manufacturers.
  *
  * Copyright (C) 2011, Matt Porter
  *
@@ -14,7 +16,7 @@
 #define BPP		16
 
 /* Supported display modules */
-#define ST7735_DISPLAY_AF_TFT18		0	/* Adafruit SPI TFT 1.8" */
+#define ST7735_DISPLAY_COMMON_TFT18	0	/* common 1.8" TFT LCD */
 
 /* Init script function */
 struct st7735_function {

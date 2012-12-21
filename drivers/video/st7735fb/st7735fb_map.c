@@ -3,7 +3,7 @@
 #include "st7735fb.h"
 
 
-const char this_driver_name[] = "adafruit_tft18";
+const char this_driver_name[] = "common_tft18";
 
 static struct st7735fb_platform_data st7735fb_data;
 

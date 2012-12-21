@@ -1,5 +1,7 @@
 /*
  * linux/drivers/video/st7735fb.c -- FB driver for ST7735 LCD controller
+ * as found in 1.8" TFT LCD modules available from Adafruit, SainSmart,
+ * and other manufacturers.
  * Layout is based on skeletonfb.c by James Simmons and Geert Uytterhoeven.
  *
  * Copyright (C) 2011, Matt Porter
@@ -601,7 +603,7 @@ static int __devinit st7735fb_probe (struct spi_device *spi)
 
 	pr_debug("ST7735FB - loading\n");
 
-	if (chip != ST7735_DISPLAY_AF_TFT18) {
+	if (chip != ST7735_DISPLAY_COMMON_TFT18) {
 		pr_err("%s: only the %s device is supported\n", DRVNAME,
 			to_spi_driver(spi->dev.driver)->id_table->name);
 		return -EINVAL;
@@ -733,7 +735,7 @@ static int __devexit st7735fb_remove(struct spi_device *spi)
 }
 
 static const struct spi_device_id st7735fb_ids[] = {
-	{ "adafruit_tft18", ST7735_DISPLAY_AF_TFT18 },
+	{ "common_tft18", ST7735_DISPLAY_COMMON_TFT18 },
 	{ },
 };
 

@@ -1,5 +1,5 @@
 config FB_ST7735
-        tristate "ST7735 framebuffer support"
+        tristate "ST7735 LCD panel framebuffer support"
         depends on FB && SPI && GPIOLIB
         default n
         select FB_SYS_FILLRECT
@@ -8,15 +8,17 @@ config FB_ST7735
         select FB_DEFERRED_IO
         select FB_SYS_FOPS
         help
-          Support for ST7735 framebuffer device family
+          Support for ST7735 framebuffer device family,
+          including 1.8" TFT LCD modules available from
+          Adafruit, SainSmart, and other manufacturers.
 
 config FB_ST7735_PANEL_TYPE_RED_TAB
        bool "ST7735 'red tab' panel type?"
        depends on FB_ST7735
        default y
        help
-         Different versions of the Adafruit 1.8" ST7735 panel 
-         are indicated by the color of the tab on the removable
+         Different versions of the ST7735 1.8" panel are
+         indicated by the color of the tab on the removable
          protective film.
          Choose "y" for a "red tab" ST7735 panel.
          Choose "n" for a "green tab" ST7735 panel.
