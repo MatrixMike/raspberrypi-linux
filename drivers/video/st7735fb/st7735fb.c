@@ -783,4 +783,4 @@ MODULE_AUTHOR("Matt Porter");
 MODULE_AUTHOR("Neil Greatorex");
 MODULE_AUTHOR("Kamal Mostafa <kamal@whence.com>");
 MODULE_LICENSE("GPL");
-MODULE_VERSION("0.3");
+MODULE_VERSION("0.4");

@@ -145,6 +145,6 @@ MODULE_AUTHOR("Neil Greatorex");
 MODULE_AUTHOR("Kamal Mostafa <kamal@whence.com>");
 MODULE_DESCRIPTION("Bind SPI to st7735fb");
 MODULE_LICENSE("GPL");
-MODULE_VERSION("0.3");
+MODULE_VERSION("0.4");
 
 
