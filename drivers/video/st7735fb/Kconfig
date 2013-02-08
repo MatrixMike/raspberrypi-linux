@@ -23,6 +23,16 @@ config FB_ST7735_PANEL_TYPE_RED_TAB
          Choose "y" for a "red tab" ST7735 panel.
          Choose "n" for a "green tab" ST7735 panel.
 
+config FB_ST7735_RGB_ORDER_REVERSED
+       bool "ST7735 panel has reversed RGB?"
+       depends on FB_ST7735
+       default n
+       help
+         Some ST7735 1.8" panels are internally wired with
+         reversed RGB color channel ordering (BGR vs. RGB).
+         Choose "y" if the red and blue channels are inverted.
+         Otherwise choose "n".
+
 config FB_ST7735_MAP
         tristate "ST7735 framebuffer mapping to GPIO/SPI"
         depends on FB_ST7735

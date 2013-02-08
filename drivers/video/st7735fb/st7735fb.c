@@ -85,7 +85,11 @@ static struct st7735_function st7735_cfg_script[] = {
 	{ ST7735_DATA, 0x0e},
 	{ ST7735_CMD, ST7735_INVOFF},
 	{ ST7735_CMD, ST7735_MADCTL},
+#if ( CONFIG_FB_ST7735_RGB_ORDER_REVERSED == 1 )
+	{ ST7735_DATA, 0xc0},
+#else
 	{ ST7735_DATA, 0xc8},
+#endif
 	{ ST7735_CMD, ST7735_COLMOD},
 	{ ST7735_DATA, 0x05},
 #if 0 /* set_addr_win will set these, so no need to set them at init */
