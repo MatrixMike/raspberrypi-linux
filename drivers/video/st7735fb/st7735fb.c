@@ -684,7 +684,7 @@ static int __devinit st7735fb_probe (struct spi_device *spi)
 
 	retval = st7735fb_init_display(par);
 	if (retval < 0)
-		goto init_fail;
+		goto fbreg_fail;
 
 	/* register framebuffer *after* initializing device! */
 	retval = register_framebuffer(info);
@@ -701,10 +701,8 @@ static int __devinit st7735fb_probe (struct spi_device *spi)
 
 	/* TODO: release gpios on fail */
 fbreg_fail:
-	framebuffer_release(info);
-
-init_fail:
 	spi_set_drvdata(spi, NULL);
+	framebuffer_release(info);
 
 alloc_fail:
 	if (spi_writebuf)
